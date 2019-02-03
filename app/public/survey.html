@@ -260,7 +260,11 @@
         photo: photo,
         scores: answers
       }
-      if (profile.scores.includes(NaN)) {
+      if (
+        profile.scores.includes(NaN) ||
+        profile.name === '' ||
+        profile.photo === ''
+      ) {
         let errMsg = $('#err-msg')
         errMsg.text(
           'Please make sure to fill out all the questions and submit again!'
@@ -277,22 +281,14 @@
           } else {
             console.log('Problem processing your submission')
           }
-        })
-
-        $.post('data/friends', profile, function(data) {
-          if (data) {
-            console.log('Data Saved for ' + profile.name)
-          } else {
-            console.log('Data not saved!')
-          }
-        }).then(() => {
-          $('#name-question').val('')
-          $('#photo-question').val('')
+          // $('#name-question').val('')
+          // $('#photo-question').val('')
           // $(':selected').each(function(elem) {
           //   $(this).val('selectedIndex', 0)
           // })
-          $('select option:first').prop('selected', true)
+          // $('select option:first').prop('selected', true)
         })
+        $('#question-form')[0].reset()
       }
     })
 
