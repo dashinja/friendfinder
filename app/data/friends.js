@@ -13,7 +13,8 @@ let profileData = [
   {
     name: 'shinja',
     photo: 'https://via.placeholder.com/200x200',
-    scores: [5, 1, 4, 4, 5, 1, 2, 5, 4, 1]
+    scores: [5, 1, 4, 4, 5, 1, 2, 5, 4, 1],
+    scoreSum: 32
   }
 ]
 

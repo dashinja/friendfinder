@@ -31,13 +31,16 @@
     <div class="text-center">
       <h1 class="display-2">
         Friend-Fest Assessment Test
-        <h3 class="display-4">
-          First Friendly Friends to Find Forever Friend Wins!
-        </h3>
-        <p class="lead">Illustrative Alliteration</p>
       </h1>
+      <h3 class="display-4">
+        First Friendly Friends to Find Forever Friend Wins!
+      </h3>
+      <p class="lead">Illustrative Alliteration</p>
 
       <h2 class="lead mb-5">Hey Look! There's the Friendliest Form EVER!</h2>
+      <a href="/">
+        <button>Home</button>
+      </a>
     </div>
 
     <div class="questionaire w-50 mx-auto">
@@ -276,9 +279,7 @@
         $.post('api/friends', profile, function(data) {
           if (data.errorCheck) {
             console.log(
-              'Scores successfully submitted for ' +
-                profile.name +
-                '...'
+              'Scores successfully submitted for ' + profile.name + '...'
             )
             console.log("I'm returned data from /api/friends", data.myData)
           } else {

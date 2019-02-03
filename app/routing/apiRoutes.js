@@ -22,8 +22,17 @@ module.exports = function(app) {
 
       // console.log("I'm sum", sum)
       req.body.scoreSum = sum
-      // console.log("I'm score on req.body", req.body.scoreSum)
+      console.log("I'm score on req.body", req.body.scoreSum)
       profiles.push(req.body)
+      // function diff(arr) {
+      //   let filtered = arr.filter(stuff => {
+      //     console.log(profiles[stuff].name)
+      //     Math.abs(25 - profiles[stuff].scoreSum) < 10
+      //   })
+      //   return filtered
+      // }
+      // let matcher = profiles.some(diff(profiles))
+      // console.log("I'm matcher, did I win?", matcher)
 
       let myResponseObject = {
         errorCheck: true,
