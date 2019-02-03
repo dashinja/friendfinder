@@ -248,12 +248,12 @@
         let answerScoreInstance = parseInt($(this).val())
         answers.push(answerScoreInstance)
 
-        for (let value of answers) {
-          value = parseInt(value)
-          console.log('value data type:', typeof value)
-        }
+        // for (let value of answers) {
+        //   value = parseInt(value)
+        //   console.log('value data type:', typeof value)
+        // }
       })
-      console.log("I'm the answers array: ", answers)
+      // console.log("I'm the answers array: ", answers)
 
       let profile = {
         name: user,
@@ -274,10 +274,13 @@
         )
       } else {
         $.post('api/friends', profile, function(data) {
-          if (data) {
+          if (data.errorCheck) {
             console.log(
-              'Scores successfully submitted for ' + profile.name + '...'
+              'Scores successfully submitted for ' +
+                profile.name +
+                '...'
             )
+            console.log("I'm returned data from /api/friends", data.myData)
           } else {
             console.log('Problem processing your submission')
           }

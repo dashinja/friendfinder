@@ -15,8 +15,21 @@ module.exports = function(app) {
     // also, compatability logic
     console.log("I'm recieved from survey.html", req.body)
     if (req.body) {
+      let sum = 0
+      req.body.scores.forEach(elem => {
+        sum += parseInt(elem)
+      })
+
+      // console.log("I'm sum", sum)
+      req.body.scoreSum = sum
+      // console.log("I'm score on req.body", req.body.scoreSum)
       profiles.push(req.body)
-      res.json(true)
+
+      let myResponseObject = {
+        errorCheck: true,
+        myData: profiles
+      }
+      res.json(myResponseObject)
     } else {
       res.json(false)
     }
