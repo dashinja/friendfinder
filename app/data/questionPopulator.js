@@ -79,8 +79,8 @@ function makeQuestions() {
     .then(data => {
       // console.log("I'm data questionHolder", data)
       module.exports = function(app) {
-       app.post
-        data;
+        app.post
+        data
       }
     })
     .catch(err => {
@@ -88,6 +88,6 @@ function makeQuestions() {
     })
 }
 
-makeQuestions()
+// makeQuestions()
 // module.exports = questionHolder
 // console.log("I'm module.exports", module.exports)

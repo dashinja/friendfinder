@@ -28,132 +28,155 @@
     ></script>
   </head>
   <body>
-    <h1 class="display-2">
-      Friend-Fest Assessment Test
-      <h3 class="display-4">
-        First Friendly Friends to Find Forever Friend Wins!
-      </h3>
-      <p class="lead">Illustrative Alliteration</p>
-    </h1>
+    <div class="text-center">
+      <h1 class="display-2">
+        Friend-Fest Assessment Test
+        <h3 class="display-4">
+          First Friendly Friends to Find Forever Friend Wins!
+        </h3>
+        <p class="lead">Illustrative Alliteration</p>
+      </h1>
 
-    <h2 class="lead">Hey Look! There's the Friendliest Form EVER!</h2>
-    <div class="questionaire">
-      <div class="question" id="q1">
-          <h3>Are you quiet?</h3> 
+      <h2 class="lead mb-5">Hey Look! There's the Friendliest Form EVER!</h2>
+    </div>
+
+    <div class="questionaire w-50 mx-auto">
+      <form action="submit" id="question-form">
+        <div class="question" id="qName">
+          <h3>What is your name?</h3>
+          <input type="text" id="name-question" />
+        </div>
+        <div class="question" id="qPhoto">
+          <h3>URL to your profile picture</h3>
+          <input type="text" id="photo-question" />
+        </div>
+        <div class="question" id="q1">
+          <h3>Are you quiet?</h3>
           <select class="custom-select custom-select-sm">
-          <option selected>Answer Below</option>
-          <option value="1">1 (Strongly Disagree)</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5 (Strongly Agree)</option>
+            <option selected>Answer Below</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
           </select>
         </div>
-      
+
         <div class="question" id="q2">
-            <h3>You prefer to be outside in nature instead of in a building.</h3> 
-            <select class="custom-select custom-select-sm">
+          <h3>You prefer to be outside in nature instead of in a building.</h3>
+          <select class="custom-select custom-select-sm">
             <option selected>Answer Below</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5 (strongly disagree)</option>
-            </select>
-          </div>
+          </select>
+        </div>
 
-          <div class="question" id="q3">
-              <h3>You prefer reading instead of talking.</h3> 
-              <select class="custom-select custom-select-sm">
-              <option selected>Answer Below</option>
-              <option value="1">1 (Strongly Disagree)</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5 (Strongly Agree)</option>
-              </select>
-            </div>
+        <div class="question" id="q3">
+          <h3>You prefer reading instead of talking.</h3>
+          <select class="custom-select custom-select-sm">
+            <option selected>Answer Below</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+        </div>
 
-            <div class="question" id="q4">
-                <h3>You prefer reading instead of talking.</h3> 
-                <select class="custom-select custom-select-sm">
-                <option selected>Answer Below</option>
-                <option value="1">1 (Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (Strongly Agree)</option>
-                </select>
-              </div>
-            <div class="question" id="q5">
-                <h3>It is very clear, a tree makes plenty of sound when it falls and no one is around to hear it!</h3> 
-                <select class="custom-select custom-select-sm">
-                <option selected>Answer Below</option>
-                <option value="1">1 (Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (Strongly Agree)</option>
-                </select>
-              </div>
-            <div class="question" id="q6">
-                <h3>TV rots your brain.</h3> 
-                <select class="custom-select custom-select-sm">
-                <option selected>Answer Below</option>
-                <option value="1">1 (Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (Strongly Agree)</option>
-                </select>
-              </div>
-            <div class="question" id="q7">
-                <h3>You're not desperate at all.</h3> 
-                <select class="custom-select custom-select-sm">
-                <option selected>Answer Below</option>
-                <option value="1">1 (Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (Strongly Agree)</option>
-                </select>
-              </div>
-            <div class="question" id="q8">
-                <h3>The idea of skydiving is thrilling to you.</h3> 
-                <select class="custom-select custom-select-sm">
-                <option selected>Answer Below</option>
-                <option value="1">1 (Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (Strongly Agree)</option>
-                </select>
-              </div>
-            <div class="question" id="q9">
-                <h3>Your favorite animal is an elephant.</h3> 
-                <select class="custom-select custom-select-sm">
-                <option selected>Answer Below</option>
-                <option value="1">1 (Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (Strongly Agree)</option>
-                </select>
-              </div>
-            <div class="question" id="q10">
-                <h3>White Roses are the best!</h3> 
-                <select class="custom-select custom-select-sm">
-                <option selected>Answer Below</option>
-                <option value="1">1 (Strongly Disagree)</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (Strongly Agree)</option>
-                </select>
-              </div>
+        <div class="question" id="q4">
+          <h3>You prefer reading instead of talking.</h3>
+          <select class="custom-select custom-select-sm">
+            <option selected>Answer Below</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <div class="question" id="q5">
+          <h3>
+            It is very clear, a tree makes plenty of sound when it falls and no
+            one is around to hear it!
+          </h3>
+          <select class="custom-select custom-select-sm">
+            <option selected>Answer Below</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <div class="question" id="q6">
+          <h3>TV rots your brain.</h3>
+          <select class="custom-select custom-select-sm">
+            <option selected>Answer Below</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <div class="question" id="q7">
+          <h3>You're not desperate at all.</h3>
+          <select class="custom-select custom-select-sm">
+            <option selected>Answer Below</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <div class="question" id="q8">
+          <h3>The idea of skydiving is thrilling to you.</h3>
+          <select class="custom-select custom-select-sm">
+            <option selected>Answer Below</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <div class="question" id="q9">
+          <h3>Your favorite animal is an elephant.</h3>
+          <select class="custom-select custom-select-sm">
+            <option selected>Answer Below</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <div class="question" id="q10">
+          <h3>White Roses are the best!</h3>
+          <select class="custom-select custom-select-sm">
+            <option selected>Answer Below</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <div id="err-msg"></div>
+        <input
+          type="submit"
+          value="Submit"
+          class="btn btn-submit"
+          id="btn-submitter"
+        />
+      </form>
     </div>
-        
-      <!-- <form>
+
+    <!-- <form>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputName">Name</label>
@@ -187,37 +210,115 @@
           />
         </div>
       </form> -->
-    </div>
+    <!-- </div> -->
   </body>
+  <script
+    src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"
+  ></script>
+
   <script>
-    
-    $(document).on("ready", () => {
-    let questionHolder = []
-    let questionObject = function (name, o1, o2, o3, o4, o5) {
-      this.name = name;
-      this.o1 = o1;
-      this.o2 = o2;
-      this.o3 = o3;
-      this.o4 = o4;
-      this.o5 = o5;
-    }
+    let questions = $('.question')
+    questions.addClass('mt-1 mb-5')
 
+    $('#question-form').submit(function(event) {
+      event.preventDefault()
+      let answered = $(':selected')
+      let answers = []
 
-    let visibleQ = `
-  <div class="question" id="q1">
-    <h3>Are you quiet or loud?</h3> 
-    <select class="custom-select custom-select-sm">
-    <option selected>Answer Below</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-    <option value="4">Four</option>
-    <option value="5">Three</option>
-    </select>
-  </div>
-    `
+      let user = $('#name-question')
+        .val()
+        .trim()
 
+      let photo = $('#photo-question')
+        .val()
+        .trim()
 
+      // let options = $('option:selected')
+      // console.log("I'm options", options)
+      // let optionArray = []
+
+      // // options.each(function() {
+      // //   optionArray.push($(this.val()))
+      // // })
+      // console.log("I'm options arry", optionArray)
+
+      answered.each(function() {
+        let answerScoreInstance = parseInt($(this).val())
+        answers.push(answerScoreInstance)
+
+        for (let value of answers) {
+          value = parseInt(value)
+          console.log('value data type:', typeof value)
+        }
+      })
+      console.log("I'm the answers array: ", answers)
+
+      let profile = {
+        name: user,
+        photo: photo,
+        scores: answers
+      }
+      if (profile.scores.includes(NaN)) {
+        let errMsg = $('#err-msg')
+        errMsg.text(
+          'Please make sure to fill out all the questions and submit again!'
+        )
+        return console.log(
+          'Please make sure to fill out all the questions and submit again!'
+        )
+      } else {
+        $.post('api/friends', profile, function(data) {
+          if (data) {
+            console.log(
+              'Scores successfully submitted for ' + profile.name + '...'
+            )
+          } else {
+            console.log('Problem processing your submission')
+          }
+        })
+
+        $.post('data/friends', profile, function(data) {
+          if (data) {
+            console.log('Data Saved for ' + profile.name)
+          } else {
+            console.log('Data not saved!')
+          }
+        }).then(() => {
+          $('#name-question').val('')
+          $('#photo-question').val('')
+          // $(':selected').each(function(elem) {
+          //   $(this).val('selectedIndex', 0)
+          // })
+          $('select option:first').prop('selected', true)
+        })
+      }
     })
+
+    // $(document).on('ready', () => {
+    //   let questionHolder = []
+    //   let questionObject = function (name, o1, o2, o3, o4, o5) {
+    //     this.name = name;
+    //     this.o1 = o1;
+    //     this.o2 = o2;
+    //     this.o3 = o3;
+    //     this.o4 = o4;
+    //     this.o5 = o5;
+    //   }
+    //   let visibleQ = `
+    // <div class="question" id="q1">
+    //   <h3>Are you quiet or loud?</h3>
+    //   <select class="custom-select custom-select-sm">
+    //   <option selected>Answer Below</option>
+    //   <option value="1">One</option>
+    //   <option value="2">Two</option>
+    //   <option value="3">Three</option>
+    //   <option value="4">Four</option>
+    //   <option value="5">Three</option>
+    //   </select>
+    // </div>
+    //   `
+    // })
   </script>
 </html>
