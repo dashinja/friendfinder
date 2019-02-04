@@ -9,7 +9,7 @@ html {
 
 .bg-image {
   /* The image used */
-  background-image: url('../../assets/images/man-group-women.jpg') !important;
+  background-image: url('../public/man-group-women.jpg') !important;
 
   /* Add the blur effect */
   filter: blur(8px) !important;
