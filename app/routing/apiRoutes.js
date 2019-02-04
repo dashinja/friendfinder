@@ -40,18 +40,31 @@ module.exports = function(app) {
         profiles[i].scoreTotal = sumCollection[i]
       }
 
-      let matcherTest = Math.abs(
-        parseInt(objB.scoreTotal) -
-          parseInt(sumCollection[sumCollection.length - 1])
-      )
+      //final matcher attempt....
 
-      function matchup() {
-        return matcherTest < delta
+      let matched = function() {
+        for (let i = 0; i < profiles.length; i++) {
+          let compare = Math.abs(
+            profiles[profiles.length - 1].scoreTotal - profiles[i].scoreTotal
+          )
+          if (compare < delta) {
+            let matchName = profiles[i].name
+            let matchPhoto = profiles[i].photo
+
+            let matchPerson = {
+              name: matchName,
+              photo: matchPhoto
+            }
+            return matchPerson
+          }
+        }
       }
-      let yourMatchMaker = profiles.findIndex(matchUp())
-      console.log("I'm beloved matchmaker: ", yourMatchMaker)
-      let yourMatch = profiles[matchUp(profiles)]
-      console.log("I'm your match: ", yourMatch)
+
+      console.log("I'm matched: ", matched())
+      // let yourMatchMaker = profiles.findIndex(matchUp())
+      // console.log("I'm beloved matchmaker: ", yourMatchMaker)
+      // let yourMatch = profiles[matchUp(profiles)]
+      // console.log("I'm your match: ", yourMatch)
 
       // console.log("I'm sumCollection right after .scoreTotal", sumCollection)
 
@@ -65,14 +78,16 @@ module.exports = function(app) {
       //       parseInt(objB.scoreTotal) -
       //         parseInt(sumCollection[sumCollection.length - 1])
       //     )
+      //     function matchUp2() {
+      //       return matcherTest < delta
+      //     }
       //     // if delta too large, check again
       //     if (matcherTest > delta) {
       //       count += 1
       //       continue
       //     } else if (matcherTest < delta) {
-      //       let indexOfMatch = arr.findIndex((go, count) => {
-      //         return arr[thisArg]
-      //       })
+      //       let indexOfMatch = profiles.findIndex(matchUp2())
+
       //       console.log("I'm indexOfMatch: ", indexOfMatch)
       //       return indexOfMatch
       //     } else {
@@ -107,14 +122,15 @@ module.exports = function(app) {
       // }
       // let matcher = profiles.some(diff(profiles))
       // console.log("I'm matcher, did I win?", matcher)
-      if (yourMatch === undefined) {
-        yourMatch = 'Sorry, no match found for you!'
-        return yourMatch
-      }
+
+      // if (yourMatch === undefined) {
+      //   yourMatch = 'Sorry, no match found for you!'
+      //   return yourMatch
+      // }
       let myResponseObject = {
         errorCheck: true,
         myData: profiles,
-        match: yourMatch
+        match: matched()
       }
       res.json(myResponseObject)
     } else {
