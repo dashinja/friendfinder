@@ -248,8 +248,8 @@
       // console.log("I'm options arry", optionArray)
 
       answered.each(function() {
-        let answerScoreInstance = parseInt($(this).val())
-        answers.push(answerScoreInstance)
+        // let answerScoreInstance =
+        answers.push(parseInt($(this).val()))
 
         // for (let value of answers) {
         //   value = parseInt(value)
@@ -276,23 +276,25 @@
           'Please make sure to fill out all the questions and submit again!'
         )
       } else {
-        $.post('api/friends', profile, function(data) {
-          if (data.errorCheck) {
-            console.log(
-              'Scores successfully submitted for ' + profile.name + '...'
-            )
-            console.log("I'm returned data from /api/friends", data.myData)
-          } else {
-            console.log('Problem processing your submission')
-          }
-          // $('#name-question').val('')
-          // $('#photo-question').val('')
-          // $(':selected').each(function(elem) {
-          //   $(this).val('selectedIndex', 0)
-          // })
-          // $('select option:first').prop('selected', true)
-        })
-        $('#question-form')[0].reset()
+        $.post('api/friends', profile)
+          .then(function(data) {
+            if (data.errorCheck) {
+              console.log(
+                `Scores successfully submitted for ${profile.name}...`
+              )
+              console.log("I'm returned data from /api/friends", data.myData)
+              console.log(`Your match is ${data.match.name}`)
+            } else {
+              console.log('Problem processing your submission')
+            }
+            // $('#name-question').val('')
+            // $('#photo-question').val('')
+            // $(':selected').each(function(elem) {
+            //   $(this).val('selectedIndex', 0)
+            // })
+            // $('select option:first').prop('selected', true)
+          })
+          .then($('#question-form')[0].reset())
       }
     })
 
