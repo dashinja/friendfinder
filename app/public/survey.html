@@ -178,14 +178,7 @@
           data-target="#BigModal"
         >
           Submit
-          <!-- <input type="submit" /> -->
         </button>
-        <!-- <input
-          type="submit"
-          value="Submit"
-          class="btn btn-submit"
-          id="btn-submitter"
-        /> -->
       </form>
       <div class="" id="putModalHere"></div>
       <div
@@ -228,42 +221,6 @@
         </div>
       </div>
     </div>
-
-    <!-- <form>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputName">Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="name"
-              placeholder="John Smith"
-              name="name"
-            />
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputphoneNumber">Phone Number</label>
-            <input
-              type="text"
-              class="form-control"
-              id="photo"
-              placeholder="https://www.someplace.com/somepicture.png"
-              name="photo"
-            />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="text"
-            class="form-control"
-            id="email"
-            placeholder="someone@somewhere.com"
-            name="email-test"
-          />
-        </div>
-      </form> -->
-    <!-- </div> -->
   </body>
   <script
     src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -288,25 +245,9 @@
         .val()
         .trim()
 
-      // let options = $('option:selected')
-      // console.log("I'm options", options)
-      // let optionArray = []
-
-      // // options.each(function() {
-      // //   optionArray.push($(this.val()))
-      // // })
-      // console.log("I'm options arry", optionArray)
-
       answered.each(function() {
-        // let answerScoreInstance =
         answers.push(parseInt($(this).val()))
-
-        // for (let value of answers) {
-        //   value = parseInt(value)
-        //   console.log('value data type:', typeof value)
-        // }
       })
-      // console.log("I'm the answers array: ", answers)
 
       let profile = {
         name: user,
@@ -332,18 +273,15 @@
         $.post('api/friends', profile)
           .then(function(data) {
             if (data.errorCheck) {
-              console.log(
-                `Scores successfully submitted for ${profile.name}...`
-              )
-              console.log("I'm returned data from /api/friends", data.myData)
-              console.log(`Your match is ${data.match.name}`)
+              // console.log(
+              //   `Scores successfully submitted for ${profile.name}...`
+              // )
+              // console.log("I'm returned data from /api/friends", data.myData)
+              // console.log(`Your match is ${data.match.name}`)
               if (data.matchSuccess) {
                 $('#modalBodyContent').html(`
-                        You are now betrothed to ${data.match.name}
-                       <img src="${
-                         data.match.photo
-                       }" alt="Your Match's picture">
-
+                  You are now betrothed to ${data.match.name}
+                  <img src="${data.match.photo}" alt="Your Match's picture">
                 `)
               } else {
                 $('#modalBodyContent').html(`
@@ -351,94 +289,23 @@
                 `)
               }
             } else {
+              $('#modalBodyContent').html(`
+              There was a problem processing your submission.
+              Please try again later.
+                `)
               console.log('Problem processing your submission')
             }
-            // $('#name-question').val('')
-            // $('#photo-question').val('')
-            // $(':selected').each(function(elem) {
-            //   $(this).val('selectedIndex', 0)
-            // })
-            // $('select option:first').prop('selected', true)
           })
-          // .then(data => {
-          //   let modalContent = `
-          //   <div
-          //     class="modal fade"
-          //     id="BigModal"
-          //     tabindex="-1"
-          //     role="dialog"
-          //     aria-labelledby="exampleModalLabel"
-          //     aria-hidden="true"
-          //   >
-          //     <div class="modal-dialog" role="document">
-          //       <div class="modal-content">
-          //         <div class="modal-header">
-          //           <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          //           <button
-          //             type="button"
-          //             class="close"
-          //             data-dismiss="modal"
-          //             aria-label="Close"
-          //           >
-          //             <span aria-hidden="true">&times;</span>
-          //           </button>
-          //         </div>
-          //         <div class="modal-body">
-          //           You are now betrothed to ${data.match.name}
-          //           <img src="${data.match.photo}" alt="Your Match's picture">
-          //         </div>
-          //         <div class="modal-footer">
-          //           <button
-          //             type="button"
-          //             class="btn btn-secondary"
-          //             data-dismiss="modal"
-          //           >
-          //             Close
-          //           </button>
-          //           <button type="button" class="btn btn-primary">
-          //             Save changes
-          //           </button>
-          //         </div>
-          //       </div>
-          //     </div>
-          //   </div>`
 
-          //   $('#putModalHere').append(modalContent)
-          // })
           .then(() => {
-            console.log('Did I successfully reset the form??')
+            // console.log('Did I successfully reset the form??')
             $('#question-form')[0].reset()
           })
           .then(() => {
-            console.log('I made the modal popup')
+            // console.log('I made the modal popup')
             $('#BigModal').modal('show')
           })
       }
     })
-
-    // $(document).on('ready', () => {
-    //   let questionHolder = []
-    //   let questionObject = function (name, o1, o2, o3, o4, o5) {
-    //     this.name = name;
-    //     this.o1 = o1;
-    //     this.o2 = o2;
-    //     this.o3 = o3;
-    //     this.o4 = o4;
-    //     this.o5 = o5;
-    //   }
-    //   let visibleQ = `
-    // <div class="question" id="q1">
-    //   <h3>Are you quiet or loud?</h3>
-    //   <select class="custom-select custom-select-sm">
-    //   <option selected>Answer Below</option>
-    //   <option value="1">One</option>
-    //   <option value="2">Two</option>
-    //   <option value="3">Three</option>
-    //   <option value="4">Four</option>
-    //   <option value="5">Three</option>
-    //   </select>
-    // </div>
-    //   `
-    // })
   </script>
 </html>
