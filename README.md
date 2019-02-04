@@ -17,7 +17,7 @@ Game.
 Set.
 I@Match.(ed)u
 
-Head on over to [Friend Fest Finder](https://friendfestfinder.herokuapp.com/survey) and give it a whirl.
+Head on over to [Friend Fest Finder](https://friendfestfinder.herokuapp.com/) and give it a whirl.
 You won't even have to sign up!
 
 This app was brought to you by: DaShinja
