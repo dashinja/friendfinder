@@ -11,6 +11,10 @@
       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/superhero/bootstrap.min.css"
+    />
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -28,7 +32,7 @@
     ></script>
   </head>
   <body>
-    <div class="text-center">
+    <div class="text-center jumbotron">
       <h1 class="display-2">
         Friend-Fest Assessment Test
       </h1>
@@ -264,7 +268,7 @@
           'Please make sure to fill out all the questions and submit again!'
         )
         $('#modalBodyContent').html(`
-        Please make sure to fill out all the questions and submit again!
+        <p class="text-center">Please make sure to fill out all the questions and submit again!</p>
                 `)
         return console.log(
           'Please make sure to fill out all the questions and submit again!'
@@ -280,19 +284,22 @@
               // console.log(`Your match is ${data.match.name}`)
               if (data.matchSuccess) {
                 $('#modalBodyContent').html(`
-                  You are now betrothed to ${data.match.name}
+                <div class="d-flex justify-content-around align-items-center">
+                  <p class="text-center"> You are now betrothed to ${
+                    data.match.name
+                  }</p>
                   <img src="${data.match.photo}" alt="Your Match's picture">
+                  </div>
                 `)
               } else {
                 $('#modalBodyContent').html(`
-                        Sorry, we found no matching profiles.
+                <p class="text-center">Sorry, we found no matching profiles.</p>
                 `)
               }
             } else {
-              $('#modalBodyContent').html(`
-              There was a problem processing your submission.
-              Please try again later.
-                `)
+              $('#modalBodyContent').html(
+                `<p class="text-center">There was a problem processing your submission. Please try again later. </p>`
+              )
               console.log('Problem processing your submission')
             }
           })
