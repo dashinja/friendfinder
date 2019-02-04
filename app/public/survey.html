@@ -44,7 +44,7 @@
     </div>
 
     <div class="questionaire w-50 mx-auto">
-      <form action="#" id="question-form">
+      <form action="submit" id="question-form">
         <div class="question" id="qName">
           <h3>What is your name?</h3>
           <input type="text" id="name-question" />
@@ -171,7 +171,7 @@
         </div>
         <div id="err-msg"></div>
         <button
-          type="button"
+          type="button submit"
           id="btn-submitter modal"
           class="btn btn-primary mt-2"
           data-toggle="modal"
@@ -333,12 +333,19 @@
               )
               console.log("I'm returned data from /api/friends", data.myData)
               console.log(`Your match is ${data.match.name}`)
-
-              $('#modalBodyContent').append(`
-                      You are now betrothed to ${data.match.name}
-                     <img src="${data.match.photo}" alt="Your Match's picture">
-              
-              `)
+              if (data.matchSuccess) {
+                $('#modalBodyContent').html(`
+                        You are now betrothed to ${data.match.name}
+                       <img src="${
+                         data.match.photo
+                       }" alt="Your Match's picture">
+                
+                `)
+              } else {
+                $('#modalBodyContent').html(`
+                        Sorry, we found no matching profiles.
+                `)
+              }
             } else {
               console.log('Problem processing your submission')
             }

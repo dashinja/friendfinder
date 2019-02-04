@@ -47,7 +47,10 @@ module.exports = function(app) {
           let compare = Math.abs(
             profiles[profiles.length - 1].scoreTotal - profiles[i].scoreTotal
           )
-          if (compare < delta) {
+          if (
+            compare < delta &&
+            profiles[i].name !== profiles[profiles.length - 1].name
+          ) {
             let matchName = profiles[i].name
             let matchPhoto = profiles[i].photo
 
@@ -56,6 +59,10 @@ module.exports = function(app) {
               photo: matchPhoto
             }
             return matchPerson
+          } else {
+            //need something here
+            let matchSuccess = false
+            return matchSuccess
           }
         }
       }
@@ -130,7 +137,11 @@ module.exports = function(app) {
       let myResponseObject = {
         errorCheck: true,
         myData: profiles,
+        matchSuccess: true,
         match: matched()
+      }
+      if (!matched()) {
+        myResponseObject.matchSuccess = false
       }
       res.json(myResponseObject)
     } else {
