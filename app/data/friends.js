@@ -22,7 +22,7 @@ let profileData = [
   {
     name: 'Thuy Nguyen',
     photo: 'https://randomuser.me/api/portraits/women/12.jpg',
-    scores: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
+    scores: [5, 5, 5, 5, 5, 5, 5, 5, 5, 4]
   },
   {
     name: 'Halbanasta Nadash',
