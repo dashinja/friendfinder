@@ -23,7 +23,6 @@ module.exports = function(app) {
       //   diff = profiles[i].scores[i] - profiles[i + 1].scores[i];
       // }
       // console.log("I'm operated diff:", diff);
-      let delta = 5
       let sumCollection = []
       let sum
       for (let obj of profiles) {
@@ -42,14 +41,17 @@ module.exports = function(app) {
 
       //final matcher attempt....
 
+      let delta = 5
+
       let matched = function() {
         for (let i = 0; i < profiles.length; i++) {
-          let compare = Math.abs(
-            profiles[profiles.length - 1].scoreTotal - profiles[i].scoreTotal
-          )
+          let newUser = parseInt(profiles[profiles.length - 1].scoreTotal)
+          let existingUser = parseInt(profiles[i].scoreTotal)
+          let compare = Math.abs(newUser - existingUser)
           if (
-            compare < delta &&
-            profiles[i].name !== profiles[profiles.length - 1].name
+            compare <= delta ||
+            (compare === 0 &&
+              profiles[i].name !== profiles[profiles.length - 1].name)
           ) {
             let matchName = profiles[i].name
             let matchPhoto = profiles[i].photo
@@ -59,12 +61,14 @@ module.exports = function(app) {
               photo: matchPhoto
             }
             return matchPerson
+          } else if (true) {
+            continue
           } else {
             //need something here
             let matchSuccess = false
-            return matchSuccess
           }
         }
+        return matchSuccess
       }
 
       console.log("I'm matched: ", matched())

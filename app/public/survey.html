@@ -35,7 +35,7 @@
       <h3 class="display-4">
         First Friendly Friends to Find Forever Friend Wins!
       </h3>
-      <p class="lead">Illustrative Alliteration</p>
+      <p class="lead">Illustrative Alliteration to find a Wife!</p>
 
       <h2 class="lead mb-5">Hey Look! There's the Friendliest Form EVER!</h2>
       <a href="/">
@@ -171,13 +171,14 @@
         </div>
         <div id="err-msg"></div>
         <button
-          type="button submit"
+          type="submit"
           id="btn-submitter modal"
           class="btn btn-primary mt-2"
           data-toggle="modal"
           data-target="#BigModal"
         >
-          <input type="submit" />
+          Submit
+          <!-- <input type="submit" /> -->
         </button>
         <!-- <input
           type="submit"
@@ -321,6 +322,9 @@
         errMsg.text(
           'Please make sure to fill out all the questions and submit again!'
         )
+        $('#modalBodyContent').html(`
+        Please make sure to fill out all the questions and submit again!
+                `)
         return console.log(
           'Please make sure to fill out all the questions and submit again!'
         )
@@ -339,7 +343,7 @@
                        <img src="${
                          data.match.photo
                        }" alt="Your Match's picture">
-                
+
                 `)
               } else {
                 $('#modalBodyContent').html(`
@@ -401,8 +405,14 @@
 
           //   $('#putModalHere').append(modalContent)
           // })
-          .then($('#BigModal').modal('show'))
-          .then($('#question-form')[0].reset())
+          .then(() => {
+            console.log('Did I successfully reset the form??')
+            $('#question-form')[0].reset()
+          })
+          .then(() => {
+            console.log('I made the modal popup')
+            $('#BigModal').modal('show')
+          })
       }
     })
 
