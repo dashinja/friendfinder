@@ -186,6 +186,7 @@
           id="btn-submitter"
         /> -->
       </form>
+      <div class="" id="putModalHere"></div>
       <div
         class="modal fade"
         id="BigModal"
@@ -208,7 +209,7 @@
               </button>
             </div>
             <div class="modal-body">
-              ...
+              <span id="modalBodyContent"></span>
             </div>
             <div class="modal-footer">
               <button
@@ -332,6 +333,12 @@
               )
               console.log("I'm returned data from /api/friends", data.myData)
               console.log(`Your match is ${data.match.name}`)
+
+              $('#modalBodyContent').append(`
+                      You are now betrothed to ${data.match.name}
+                     <img src="${data.match.photo}" alt="Your Match's picture">
+              
+              `)
             } else {
               console.log('Problem processing your submission')
             }
@@ -342,7 +349,52 @@
             // })
             // $('select option:first').prop('selected', true)
           })
-          .then($('#BigModal').modal("show"))
+          // .then(data => {
+          //   let modalContent = `
+          //   <div
+          //     class="modal fade"
+          //     id="BigModal"
+          //     tabindex="-1"
+          //     role="dialog"
+          //     aria-labelledby="exampleModalLabel"
+          //     aria-hidden="true"
+          //   >
+          //     <div class="modal-dialog" role="document">
+          //       <div class="modal-content">
+          //         <div class="modal-header">
+          //           <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          //           <button
+          //             type="button"
+          //             class="close"
+          //             data-dismiss="modal"
+          //             aria-label="Close"
+          //           >
+          //             <span aria-hidden="true">&times;</span>
+          //           </button>
+          //         </div>
+          //         <div class="modal-body">
+          //           You are now betrothed to ${data.match.name}
+          //           <img src="${data.match.photo}" alt="Your Match's picture">
+          //         </div>
+          //         <div class="modal-footer">
+          //           <button
+          //             type="button"
+          //             class="btn btn-secondary"
+          //             data-dismiss="modal"
+          //           >
+          //             Close
+          //           </button>
+          //           <button type="button" class="btn btn-primary">
+          //             Save changes
+          //           </button>
+          //         </div>
+          //       </div>
+          //     </div>
+          //   </div>`
+
+          //   $('#putModalHere').append(modalContent)
+          // })
+          .then($('#BigModal').modal('show'))
           .then($('#question-form')[0].reset())
       }
     })
