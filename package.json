@@ -4,5 +4,8 @@
 		"express": "^4.16.4",
 		"inquirer": "^6.2.2",
 		"mysql": "^2.16.0"
+	},
+	"scripts": {
+		"start": "node server.js"
 	}
 }
