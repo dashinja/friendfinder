@@ -27,16 +27,15 @@ module.exports = function(app) {
       //final matcher attempt....
 
       let delta = 5
-
+      let matchSuccess
       let matched = function() {
         for (let i = 0; i < profiles.length; i++) {
           let newUser = parseInt(profiles[profiles.length - 1].scoreTotal)
           let existingUser = parseInt(profiles[i].scoreTotal)
           let compare = Math.abs(newUser - existingUser)
           if (
-            compare <= delta ||
-            (compare === 0 &&
-              profiles[i].name !== profiles[profiles.length - 1].name)
+            compare <= delta &&
+            profiles[i].name !== profiles[profiles.length - 1].name
           ) {
             let matchName = profiles[i].name
             let matchPhoto = profiles[i].photo
@@ -47,10 +46,8 @@ module.exports = function(app) {
             }
             return matchPerson
           } else if (true) {
+            matchSuccess = false
             continue
-          } else {
-            //need something here
-            let matchSuccess = false
           }
         }
         return matchSuccess
