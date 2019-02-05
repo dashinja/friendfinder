@@ -25,7 +25,7 @@ let profileData = [
     scores: [5, 5, 5, 5, 5, 5, 5, 5, 5, 4]
   },
   {
-    name: 'Halbanasta Nadash',
+    name: 'Chase Mina',
     photo: 'https://randomuser.me/api/portraits/women/52.jpg',
     scores: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
   },
