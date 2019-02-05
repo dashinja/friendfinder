@@ -1,4 +1,4 @@
-/* This file is for use only when you want to easily remake the questions in the survey. This space works, however it is no longer connected to the survey.thml page. Some assembly required. */
+/* This file is for use only when you want to easily remake the questions in the survey. This space works, however it is no longer connected to the survey.html page. Some assembly required. */
 
 const inquirer = require('inquirer')
 
