@@ -5,7 +5,6 @@ module.exports = function(app) {
     res.json(profiles)
   })
   app.post('/api/friends', (req, res) => {
-    // console.log("I'm received from survey.html", req.body)
 
     if (req.body) {
       profiles.push(req.body)
@@ -52,8 +51,6 @@ module.exports = function(app) {
         }
         return matchSuccess
       }
-
-      // console.log("I'm matched: ", matched())
 
       let myResponseObject = {
         errorCheck: true,

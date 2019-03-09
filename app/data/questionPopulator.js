@@ -20,53 +20,53 @@ function makeQuestions() {
       {
         type: 'input',
         message: 'Question 1:',
-        name: 'q1'
+        name: 'q1',
       },
       {
         type: 'input',
         message: 'Question 2:',
-        name: 'q2'
+        name: 'q2',
       },
       {
         type: 'input',
         message: 'Question 3:',
-        name: 'q3'
+        name: 'q3',
       },
       {
         type: 'input',
         message: 'Question 4:',
-        name: 'q4'
+        name: 'q4',
       },
       {
         type: 'input',
         message: 'Question 5:',
-        name: 'q5'
+        name: 'q5',
       },
       {
         type: 'input',
         message: 'Question 6:',
-        name: 'q6'
+        name: 'q6',
       },
       {
         type: 'input',
         message: 'Question 7:',
-        name: 'q7'
+        name: 'q7',
       },
       {
         type: 'input',
         message: 'Question 8:',
-        name: 'q8'
+        name: 'q8',
       },
       {
         type: 'input',
         message: 'Question 9:',
-        name: 'q9'
+        name: 'q9',
       },
       {
         type: 'input',
         message: 'Question 10:',
-        name: 'q10'
-      }
+        name: 'q10',
+      },
     ])
     .then(qPop => {
       console.log("I'm populated inquirer response object: ", qPop)
@@ -79,7 +79,6 @@ function makeQuestions() {
       return questionHolder
     })
     .then(data => {
-      // console.log("I'm data questionHolder", data)
       module.exports = function(app) {
         app.post
         data
@@ -89,7 +88,3 @@ function makeQuestions() {
       if (err) throw err
     })
 }
-
-// makeQuestions()
-// module.exports = questionHolder
-// console.log("I'm module.exports", module.exports)

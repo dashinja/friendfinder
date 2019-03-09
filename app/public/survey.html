@@ -221,9 +221,7 @@
               >
                 Close
               </button>
-              <!-- <button type="button" class="btn btn-primary">
-                Save changes
-              </button> -->
+  
             </div>
           </div>
         </div>
@@ -281,11 +279,7 @@
         $.post('api/friends', profile)
           .then(function(data) {
             if (data.errorCheck) {
-              // console.log(
-              //   `Scores successfully submitted for ${profile.name}...`
-              // )
-              // console.log("I'm returned data from /api/friends", data.myData)
-              // console.log(`Your match is ${data.match.name}`)
+
               if (data.matchSuccess) {
                 $('#modalBodyContent').html(`
                 <div class="d-flex justify-content-around align-items-center">
@@ -313,11 +307,9 @@
           })
 
           .then(() => {
-            // console.log('Did I successfully reset the form??')
             $('#question-form')[0].reset()
           })
           .then(() => {
-            // console.log('I made the modal popup')
             $('#BigModal').modal({ focus: true })
           })
       }
