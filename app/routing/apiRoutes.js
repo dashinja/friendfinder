@@ -1,5 +1,6 @@
-let profiles = require('../data/friends')
-console.log('Inside apiRoutes:', profiles)
+// let profiles = require('../data/friends')
+let profiles = require('../../utility/methods/profileDataTransform')
+
 module.exports = function(app) {
   app.get('/api/friends', (req, res) => {
     res.json(profiles)
