@@ -1,8 +1,8 @@
 require('dotenv').config()
 const axios = require('axios').default
 
-;(async () => {
-  let profileData = [
+// ;(async () => {
+  let profileData = await [
     {
       name: 'Queen Jacobs',
       photo: await getFace(),
@@ -59,9 +59,9 @@ const axios = require('axios').default
   // console.log('did I change?:' + yep)
   console.log(profileData)
 
-  module.exports = profileData
+  module.exports = await profileData
 
-  async function getFace(profile) {
+  async function getFace() {
     let out
     try {
       await axios
@@ -79,7 +79,7 @@ const axios = require('axios').default
 
           out = face
           // return res
-          return face
+          return await face
           // const axiosResult = await axiosResponse
           // console.log(axiosResult)
         })
