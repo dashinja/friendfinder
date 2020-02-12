@@ -1,11 +1,11 @@
-let profiles = require('../data/friends')
+// let profiles = require('../data/friends')
+let profiles = require('../../utility/methods/profileDataTransform')
 
 module.exports = function(app) {
   app.get('/api/friends', (req, res) => {
     res.json(profiles)
   })
   app.post('/api/friends', (req, res) => {
-
     if (req.body) {
       profiles.push(req.body)
       let sumCollection = []
@@ -41,7 +41,7 @@ module.exports = function(app) {
 
             let matchPerson = {
               name: matchName,
-              photo: matchPhoto
+              photo: matchPhoto,
             }
             return matchPerson
           } else if (true) {
@@ -56,7 +56,7 @@ module.exports = function(app) {
         errorCheck: true,
         myData: profiles,
         matchSuccess: true,
-        match: matched()
+        match: matched(),
       }
       if (!matched()) {
         myResponseObject.matchSuccess = false
