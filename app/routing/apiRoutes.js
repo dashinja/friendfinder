@@ -1,9 +1,11 @@
 let profiles = require('../data/friends')
 let TransformData = require('../../utility/methods/profileDataTransform')
+await TransformData(profiles)
 
 module.exports = function(app) {
   app.get('/api/friends', async (req, res) => {
     await TransformData(profiles)
+
     res.json(profiles)
   })
   app.post('/api/friends', (req, res) => {
