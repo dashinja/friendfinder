@@ -5,7 +5,7 @@ TransformData(profiles)
 
 setInterval(() => {
   TransformData(profiles)
-}, 1000)
+}, 60 * 1000)
 
 module.exports = function(app) {
   app.get('/api/friends', async (req, res) => {
