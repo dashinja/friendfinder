@@ -221,7 +221,6 @@
               >
                 Close
               </button>
-  
             </div>
           </div>
         </div>
@@ -258,7 +257,7 @@
       let profile = {
         name: user,
         photo: photo,
-        scores: answers
+        scores: answers,
       }
       if (
         profile.scores.includes(NaN) ||
@@ -267,29 +266,24 @@
       ) {
         let errMsg = $('#err-msg')
         errMsg.text(
-          'Please make sure to fill out all the questions and submit again!'
+          'Please make sure to fill out all the questions and submit again!',
         )
         $('#modalBodyContent').html(`
         <p class="text-center">Please make sure to fill out all the questions and submit again!</p>
                 `)
         return console.log(
-          'Please make sure to fill out all the questions and submit again!'
+          'Please make sure to fill out all the questions and submit again!',
         )
       } else {
         $.post('api/friends', profile)
           .then(function(data) {
             if (data.errorCheck) {
-
               if (data.matchSuccess) {
                 $('#modalBodyContent').html(`
                 <div class="d-flex justify-content-around align-items-center">
-                  <p class="text-center">You are now betrothed to ${
-                    data.match.name
-                  }
+                  <p class="text-center">You are now betrothed to ${data.match.name}
                   </p>
-                    <img src="${
-                      data.match.photo
-                    }" alt="Your Match's picture" class="justify-content-center align-items-center">
+                    <img src="${data.match.photo}" alt="Your Match's picture" class="justify-content-center align-items-center">
                 </div>
                 `)
               } else {
@@ -310,8 +304,8 @@
             $('#question-form')[0].reset()
           })
           .then(() => {
-            $('#BigModal').modal({ focus: true })
           })
+          .catch(err => console.error(err))
       }
     })
   </script>

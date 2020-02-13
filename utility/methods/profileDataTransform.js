@@ -1,11 +1,10 @@
-var data = require('../../app/data/friends')
 const axios = require('axios').default
 require('dotenv').config()
 
-const addFaces = async () => {
+module.exports = async data => {
   try {
     const response = await axios.get(
-      `https://api.generated.photos/api/v1/faces?per_page=${data.length}&gender=female`,
+      `https://api.generated.photos/api/v1/faces?per_page=${data.length}&gender=female&emotion=joy&age=adult&confidence=1&order_by=random`,
       {
         headers: {
           Authorization: `API-KEY ${process.env.PHOTO_GENERATOR_KEY}`,
@@ -13,22 +12,16 @@ const addFaces = async () => {
       },
     )
 
-    let faceList = response.data.faces
-    // console.log(faceList)
-    let faceUrls
+    const faceList = response.data.faces
 
-    for (let face of faceList) {
-      // console.log(face.urls[4])
-      for (let user of data) {
-        user.photo = face.urls[4]
-      }
+    for (let i = 0; i < data.length; i++) {
+      let facePhotoUrl = faceList[i].urls[2]['128']
+
+      data[i].photo = facePhotoUrl
     }
-    console.log('new data:', data)
+
+    return data
   } catch (error) {
     console.error(error)
   }
 }
-
-addFaces()
-
-module.exports = data
