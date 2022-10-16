@@ -1,17 +1,20 @@
 let profiles = require('../data/friends')
 let TransformData = require('../../utility/methods/profileDataTransform')
 
-TransformData(profiles)
+const getProfileImages = TransformData(profiles)
 
 setInterval(() => {
   TransformData(profiles)
 }, 5200 * 1000)
 
 module.exports = function(app) {
-  app.get('/api/friends', async (req, res) => {
+  app.get('/api/friends', async (_req, res) => {
     res.json(profiles)
   })
-  app.post('/api/friends', (req, res) => {
+  app.post('/api/friends', async (req, res) => {
+
+    await getProfileImages()
+
     if (req.body) {
       profiles.push(req.body)
       let sumCollection = []
