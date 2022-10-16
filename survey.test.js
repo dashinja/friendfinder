@@ -6,7 +6,6 @@ describe('Survey Page', () => {
 
   beforeAll(() => {
     var f = readFileSync('./app/public/survey.html', 'utf-8')
-    console.log('DOM as is: ', f)
     document.documentElement.innerHTML = f
   })
 
