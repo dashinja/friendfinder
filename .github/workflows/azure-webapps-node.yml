@@ -74,7 +74,7 @@ jobs:
         name: node-app
         
     - name: Unzip artifact for deployment
-      run: unzip release.zip
+      run: unzip -o release.zip
       
     - name: Delete zipped release.zip artifact
       run: rm release.zip
