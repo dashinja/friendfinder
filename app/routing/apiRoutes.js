@@ -4,7 +4,7 @@ let TransformData = require('../../utility/methods/profileDataTransform')
 const getProfileImages = TransformData(profiles)
 
 setInterval(() => {
-  TransformData(profiles)
+  getProfileImages()
 }, 5200 * 1000)
 
 module.exports = function(app) {
