@@ -1,5 +1,6 @@
 let profiles = require('../data/friends')
-let TransformData = require('../../utility/methods/profileDataTransform')
+import TransformData from '../../utility/methods/profileDataTransform'
+import {Express} from 'express'
 
 const getProfileImages = TransformData(profiles)
 
@@ -7,7 +8,7 @@ setInterval(() => {
   getProfileImages()
 }, 5200 * 1000)
 
-module.exports = function(app) {
+export default function(app: Express) {
   app.get('/api/friends', async (_req, res) => {
     res.json(profiles)
   })
@@ -18,10 +19,10 @@ module.exports = function(app) {
     if (req.body) {
       profiles.push(req.body)
       let sumCollection = []
-      let sum
+      let sum: number
       for (let obj of profiles) {
         sum = 0
-        obj.scores.forEach(num => {
+        obj.scores.forEach((num: string) => {
           sum += parseInt(num)
         })
         sumCollection.push(sum)
@@ -35,7 +36,7 @@ module.exports = function(app) {
       //final matcher attempt....
 
       let delta = 5
-      let matchSuccess
+      let matchSuccess: boolean
       let matched = function() {
         for (let i = 0; i < profiles.length; i++) {
           let newUser = parseInt(profiles[profiles.length - 1].scoreTotal)

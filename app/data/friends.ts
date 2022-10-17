@@ -1,4 +1,4 @@
-let profileData = [
+const profileData = [
   {
     name: 'Queen Jacobs',
     photo: 'https://randomuser.me/api/portraits/women/9.jpg',
@@ -51,4 +51,4 @@ let profileData = [
   },
 ]
 
-module.exports = profileData
+export default profileData
