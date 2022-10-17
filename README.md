@@ -1,4 +1,6 @@
 # Friend Fest Finder
+[![Azure WebApp CI/CD](https://github.com/dashinja/friendfinder/actions/workflows/azure-webapps-node.yml/badge.svg?branch=master)](https://github.com/dashinja/friendfinder/actions/workflows/azure-webapps-node.yml)
+[![pages-build-deployment](https://github.com/dashinja/friendfinder/actions/workflows/pages/pages-build-deployment/badge.svg?branch=master)](https://github.com/dashinja/friendfinder/actions/workflows/pages/pages-build-deployment)
 ### Find a Friend Today!
 
 #### Who are we kidding?
