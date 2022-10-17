@@ -10,7 +10,6 @@ on:
     branches: [ "master" ]
 
 jobs:
-  - name: Building for NodeJs Standalone
   build:
 
     runs-on: ubuntu-latest

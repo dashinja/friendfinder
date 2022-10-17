@@ -33,7 +33,6 @@ permissions:
 
 jobs:
   build:
-  name: Build with Node
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -60,7 +59,6 @@ jobs:
         path: .
 
   deploy:
-    name: Deploy Azure WebApp
     permissions:
       contents: none
     runs-on: ubuntu-latest
