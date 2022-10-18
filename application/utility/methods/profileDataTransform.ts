@@ -2,16 +2,15 @@ import axios from 'axios'
 import * as dotenv from 'dotenv'
 dotenv.config()
 
-type Profile = {
+export interface Profile {
   name: string
   photo: string
   scores: number[]
+  scoreTotal?: number
 }
 
 export default (data: Profile[]) => async () => {
-  console.log('start the transform func')
   try {
-    console.log('right before axios call)')
     const response = await axios.get(
       `https://api.generated.photos/api/v1/faces?per_page=${data.length}&gender=female&emotion=joy&age=adult&confidence=1&order_by=random`,
       {
@@ -20,7 +19,6 @@ export default (data: Profile[]) => async () => {
         },
       },
     )
-    console.log('right after axios call')
     const faceList = response.data.faces
 
     for (let i = 0; i < data.length; i++) {
@@ -31,6 +29,7 @@ export default (data: Profile[]) => async () => {
 
     return data
   } catch (error) {
-    console.error(error)
+    // console.error("Error has a name: ", error)
+    throw error
   }
 }

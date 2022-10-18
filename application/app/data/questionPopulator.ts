@@ -1,20 +1,10 @@
-/* This file is for use only when you want to easily remake the questions in the survey. This space works, however it is no longer connected to the survey.html page. Some assembly required. */
+// import inquirer from 'inquirer'
+import inquirer from 'inquirer'
 
-const inquirer = require('inquirer')
-
-let questionHolder = []
+let questionHolder: string[] = []
 let counter = 1
-let questionObject = function(id, name) {
-  this.id = counter
-  this.name = name
-  this.o1 = 1
-  this.o2 = 2
-  this.o3 = 3
-  this.o4 = 4
-  this.o5 = 5
-}
 
-function makeQuestions() {
+export default function makeQuestions() {
   inquirer
     .prompt([
       {
@@ -68,23 +58,18 @@ function makeQuestions() {
         name: 'q10',
       },
     ])
-    .then(qPop => {
-      console.log("I'm populated inquirer response object: ", qPop)
-      for (const name in qPop) {
-        questionHolder.push(new questionObject(counter, qPop[name]))
+    .then((qPop: Record<string, string>) => {
+      for (const question in qPop) {
+        questionHolder.push(qPop[question])
         counter += 1
       }
-      console.table("I'm populated questionHolder:", questionHolder)
 
       return questionHolder
     })
-    .then(data => {
-      module.exports = function(app) {
-        app.post
-        data
-      }
-    })
-    .catch(err => {
+
+    .catch((err: any) => {
       if (err) throw err
     })
 }
+
+makeQuestions()

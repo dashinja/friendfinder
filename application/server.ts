@@ -1,4 +1,4 @@
-import express, { static as staticCustom, urlencoded, json, Express, Request } from 'express'
+import express, { static as staticCustom, urlencoded, json, Express } from 'express'
 import { join } from 'path'
 const app: Express = express()
 const PORT = process.env.PORT || 3000

@@ -1,3 +1,5 @@
+import { Profile } from '../../utility/methods/profileDataTransform'
+
 const profileData = [
   {
     name: 'Queen Jacobs',
@@ -49,6 +51,6 @@ const profileData = [
     photo: 'https://randomuser.me/api/portraits/women/92.jpg',
     scores: [1, 2, 3, 4, 5, 4, 2, 3, 5, 5],
   },
-]
+] as unknown as Profile[]
 
 export default profileData
