@@ -1,8 +1,7 @@
 // import inquirer from 'inquirer'
 import inquirer from 'inquirer'
 
-let questionHolder: string[] = []
-let counter = 1
+const questionHolder: string[] = []
 
 export default function makeQuestions() {
   inquirer
@@ -61,13 +60,12 @@ export default function makeQuestions() {
     .then((qPop: Record<string, string>) => {
       for (const question in qPop) {
         questionHolder.push(qPop[question])
-        counter += 1
       }
 
       return questionHolder
     })
 
-    .catch((err: any) => {
+    .catch((err: unknown) => {
       if (err) throw err
     })
 }

@@ -22,14 +22,14 @@ export default (data: Profile[]) => async () => {
     const faceList = response.data.faces
 
     for (let i = 0; i < data.length; i++) {
-      let facePhotoUrl = faceList[i].urls[2]['128']
+      const facePhotoUrl = faceList[i].urls[2]['128']
 
       data[i].photo = facePhotoUrl
     }
 
     return data
   } catch (error) {
-    // console.error("Error has a name: ", error)
+    console.error("Error has a name: ", error)
     throw error
   }
 }

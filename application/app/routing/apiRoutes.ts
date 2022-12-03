@@ -20,9 +20,9 @@ export default function (app: Express) {
 
     if (req.body) {
       profiles.push(req.body)
-      let sumCollection: number[] = []
+      const sumCollection: number[] = []
       let sum: number
-      for (let obj of profiles) {
+      for (const obj of profiles) {
         sum = 0
         obj.scores.forEach((num: number) => {
           sum += num
@@ -41,27 +41,27 @@ export default function (app: Express) {
 
       //final matcher attempt....
 
-      let delta = 5
+      const delta = 5
       let matchSuccess: boolean
-      let matched = function () {
+      const matched = function () {
         for (let i = 0; i < profiles.length; i++) {
-          let newUserTotalScore = profiles[profiles.length - 1].scoreTotal
-          let existingUserTotalScore = profiles[i].scoreTotal
+          const newUserTotalScore = profiles[profiles.length - 1].scoreTotal
+          const existingUserTotalScore = profiles[i].scoreTotal
           if (newUserTotalScore && existingUserTotalScore) {
-            let compare = Math.abs(newUserTotalScore - existingUserTotalScore)
+            const compare = Math.abs(newUserTotalScore - existingUserTotalScore)
             if (
               compare <= delta &&
               profiles[i].name !== profiles[profiles.length - 1].name
             ) {
-              let matchName = profiles[i].name
-              let matchPhoto = profiles[i].photo
+              const matchName = profiles[i].name
+              const matchPhoto = profiles[i].photo
 
-              let matchPerson = {
+              const matchPerson = {
                 name: matchName,
                 photo: matchPhoto,
               }
               return matchPerson
-            } else if (true) {
+            } else {
               matchSuccess = false
               continue
             }
@@ -70,7 +70,7 @@ export default function (app: Express) {
         return matchSuccess
       }
 
-      let myResponseObject = {
+      const myResponseObject = {
         errorCheck: true,
         myData: profiles,
         matchSuccess: true,

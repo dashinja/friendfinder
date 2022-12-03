@@ -1,7 +1,5 @@
-/** @type {import('jest').Config} */
-const config = {
-  verbose: true,
+/** @type {import('ts-jest').JestConfigWithTsJest} */
+export default {
+  preset: 'ts-jest',
   testEnvironment: 'jsdom',
 }
-
-module.exports = config

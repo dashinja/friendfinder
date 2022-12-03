@@ -1,11 +1,11 @@
 jest.dontMock('jquery')
 import $ from 'jquery'
-import { readFileSync } from 'fs'
+import { readFile, readFileSync } from 'fs'
 
 describe('Survey Page', () => {
 
   beforeAll(() => {
-    var f = readFileSync('./app/public/survey.html', 'utf-8')
+    const f = readFileSync(__dirname + '/app/public/survey.html', 'utf-8')
     document.documentElement.innerHTML = f
   })
 
