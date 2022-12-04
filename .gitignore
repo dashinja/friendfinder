@@ -1,6 +1,5 @@
 # For Typescript's workings
-**/application/*.js
-
+application/**/*.js
 # Logs
 logs
 *.log
