@@ -9,7 +9,7 @@
   },
   "main": "./runThese/server.js",
   "scripts": {
-    "start": "tsc && nodemon application/server.ts",
+    "start": "tsc && nodemon application/server.js",
     "test": "jest",
     "makeQuestions": "tsc && cd app/data/ && node questionPopulator.js",
     "clean": "rm application/*.js application/**/*/*.js"

@@ -1,12 +1,12 @@
-import profiles from '../data/friends'
-import TransformData, { Profile } from '../../utility/methods/profileDataTransform'
+import profiles from '../data/friends.js'
+import TransformData, { Profile } from '../../utility/methods/profileDataTransform.js'
 import { Express } from 'express'
 
 const getProfileImages = TransformData(profiles)
 
-setInterval(() => {
-  getProfileImages()
-}, 5200 * 1000)
+// setInterval(() => {
+//   getProfileImages()
+// }, 5200 * 1000)
 
 export default function (app: Express) {
   app.get('/api/friends', async (_req, res) => {
@@ -16,33 +16,24 @@ export default function (app: Express) {
 
     await getProfileImages()
 
-    profiles as Record<string, any>
+    const body = req.body as Profile
 
-    if (req.body) {
-      profiles.push(req.body)
-      const sumCollection: number[] = []
-      let sum: number
-      for (const obj of profiles) {
-        sum = 0
-        obj.scores.forEach((num: number) => {
-          sum += num
-        })
-        sumCollection.push(sum)
-      }
+    if (body) {
+      body.scores = body.scores.map(score => typeof score === 'string' ? parseInt(score) : score)
 
-      // add .scoreTotal prop to elements in profiles array
-      profiles.forEach((profile: Profile, i: number) => {
-        profile.scoreTotal = sumCollection[i]
-      })
+      profiles.push(body)
 
-      for (let i = 0; i < profiles.length; i++) {
-        profiles[i].scoreTotal = sumCollection[i]
+      for (const profile of profiles) {
+        const adder = (numArray: number[]) => numArray.reduce((accum, next) => accum + next, 0)
+
+        profile.scoreTotal = adder(profile.scores)
       }
 
       //final matcher attempt....
 
       const delta = 5
       let matchSuccess: boolean
+
       const matched = function () {
         for (let i = 0; i < profiles.length; i++) {
           const newUserTotalScore = profiles[profiles.length - 1].scoreTotal

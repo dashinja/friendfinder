@@ -14,7 +14,7 @@ $(function () {
 
   const questionSetContainerSelector = $('.questionSetContainer')
   const questionFormSelector = $('#question-form')
-  const individualQuestionsSelector = $('.question')
+  // const individualQuestionsSelector = $('.question')
   const modalPositionSelector = $('#modalPosition')
 
   const singleQuestionSetContent = `
@@ -31,7 +31,7 @@ $(function () {
   const questionSet = questionValues.map((q, i) => {
     return `
     <div class="question mt-1 mb-5" id=q${i + 1}>
-        <h3>${i + 5}. ${q}</h3>
+        <h3>${i + 1}. ${q}</h3>
         <select class="custom-select custom-select-sm">
         <option selected>Answer Below</option>
         <option value="1">1 (Strongly Disagree)</option>
@@ -95,7 +95,7 @@ $(function () {
       </div>`
 
 
-  individualQuestionsSelector.addClass('mt-1 mb-5')
+  // individualQuestionsSelector.addClass('mt-1 mb-5')
 
   // Append Question List
   questionSetContainerSelector.append(...questionSet)
@@ -111,16 +111,16 @@ $(function () {
 
   $('#question-form').on("submit", function (event) {
     event.preventDefault()
+
     const answered = $(':selected')
     const answers: number[] = []
 
     const user = $('#name-question').val()
-
     const photo = $('#photo-question').val()
 
     answered.each(function (answer) {
-      console.log('answer from answered array: ', answer)
-      answers.push(answer)
+      const userInput = answered[answer].innerText
+      answers.push(parseInt(userInput))
     })
 
     const profile = {
@@ -128,6 +128,7 @@ $(function () {
       photo: photo,
       scores: answers,
     }
+
     if (
       profile.scores.includes(NaN) ||
       profile.name === '' ||

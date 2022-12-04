@@ -1,6 +1,13 @@
 import { Profile } from '../../utility/methods/profileDataTransform'
 
-const profileData = [
+export type profileDataType = {
+  name: string
+  photo: string
+  scores: number[]
+  scoreTotal?: number
+}
+
+const profileData: profileDataType[] = [
   {
     name: 'Queen Jacobs',
     photo: 'https://randomuser.me/api/portraits/women/9.jpg',

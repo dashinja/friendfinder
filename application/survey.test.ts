@@ -1,6 +1,6 @@
 jest.dontMock('jquery')
 import $ from 'jquery'
-import { readFile, readFileSync } from 'fs'
+import { readFileSync } from 'fs'
 
 describe('Survey Page', () => {
 

@@ -1,6 +1,6 @@
-import axios from 'axios'
 import * as dotenv from 'dotenv'
 dotenv.config()
+import axios from 'axios'
 
 export interface Profile {
   name: string
@@ -19,17 +19,19 @@ export default (data: Profile[]) => async () => {
         },
       },
     )
-    const faceList = response.data.faces
 
-    for (let i = 0; i < data.length; i++) {
-      const facePhotoUrl = faceList[i].urls[2]['128']
+    if (response.status !== 200) {
+      const faceList = response.data.faces
 
-      data[i].photo = facePhotoUrl
-    }
+      for (let i = 0; i < data.length; i++) {
+        const facePhotoUrl = faceList[i].urls[2]['128']
+
+        data[i].photo = facePhotoUrl
+      }
+    } 
 
     return data
   } catch (error) {
-    console.error("Error has a name: ", error)
-    throw error
+    console.error('Photo Generator Failed')
   }
 }
