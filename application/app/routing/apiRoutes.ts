@@ -33,7 +33,7 @@ export default function (app: Express) {
 
       const delta = 5
       let matchSuccess: boolean
-
+      console.log('for trenton')
       const matched = function () {
         for (let i = 0; i < profiles.length; i++) {
           const newUserTotalScore = profiles[profiles.length - 1].scoreTotal
