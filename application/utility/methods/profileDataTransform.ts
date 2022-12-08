@@ -23,11 +23,10 @@ export default (data: Profile[]) => async () => {
     if (response.status !== 200) {
       const faceList = response.data.faces
 
-      for (let i = 0; i < data.length; i++) {
+      data.forEach((p, i) => {
         const facePhotoUrl = faceList[i].urls[2]['128']
-
-        data[i].photo = facePhotoUrl
-      }
+        p.photo = facePhotoUrl
+      })
     } 
 
     return data

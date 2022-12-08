@@ -14,7 +14,6 @@ $(function () {
 
   const questionSetContainerSelector = $('.questionSetContainer')
   const questionFormSelector = $('#question-form')
-  // const individualQuestionsSelector = $('.question')
   const modalPositionSelector = $('#modalPosition')
 
   const singleQuestionSetContent = `
@@ -94,9 +93,6 @@ $(function () {
         </div>
       </div>`
 
-
-  // individualQuestionsSelector.addClass('mt-1 mb-5')
-
   // Append Question List
   questionSetContainerSelector.append(...questionSet)
 
@@ -141,7 +137,7 @@ $(function () {
       $('#modalBodyContent').html(`
         <p class="text-center">Please make sure to fill out all the questions and submit again!</p>
                 `)
-      return console.log(
+      return console.error(
         'Please make sure to fill out all the questions and submit again!'
       )
     } else {
@@ -166,7 +162,7 @@ $(function () {
               <p class="text-center">There was a problem processing your submission.
               Please try again later.</p>
                 `)
-            console.log('Problem processing your submission')
+            console.error('Problem processing your submission')
           }
         })
 
